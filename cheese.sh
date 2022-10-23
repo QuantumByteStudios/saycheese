@@ -17,4 +17,6 @@ if ! which php >/dev/null; then
   fi
 fi
 
+cd src/
+
 python3 main.py

