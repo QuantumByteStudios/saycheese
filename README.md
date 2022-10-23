@@ -1,3 +1,6 @@
+<p align="center">
+    <img src="src/others/icon.png" alt=" ">
+</p>
 <h1 align="center">SayCheese</h1>
 <p align="center">A tool to hack webcam & capture images from it</p>
 
@@ -14,3 +17,24 @@ Usage of saycheese for attacking targets without prior mutual consent is illegal
     cd saycheese
     chmod +x *
     ./cheese
+
+# Screenshots:
+
+<p align="center">
+
+<img src="src/others/Start.png" alt=" ">
+Enter a custom port number
+    
+    
+<img src="src/others/YourScreen.png" alt=" ">
+Server started at given port
+    
+    
+<img src="src/others/VictimScreen.png" alt=" ">
+Victim's Screen
+    
+    
+<img src="src/others/Output.png" alt=" ">
+Output Images
+    
+</p>
