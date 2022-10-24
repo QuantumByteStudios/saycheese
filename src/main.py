@@ -1,7 +1,5 @@
 import os
 
-os.system("clear")
-
 HEADER = '\033[95m'
 BLUE = '\033[94m'
 CYAN = '\033[96m'
@@ -10,6 +8,14 @@ WARNING = '\033[93m'
 FAIL = '\033[91m'
 RESET = '\033[0m'
 BOLD = '\033[1m'
+
+
+if os.name == 'nt':
+    os.system('cls')
+    print(f'{FAIL}This tool is not supported for Windows{RESET}')
+    exit()
+else:
+    os.system('clear')
 
 
 banner = f'''
