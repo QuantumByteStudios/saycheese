@@ -31,21 +31,22 @@
 
     <!-- Configure a few settings and attach camera -->
     <script language="JavaScript">
-        Webcam.set({
-            width: 490,
-            height: 390,
-            image_format: 'jpeg',
-            jpeg_quality: 90
+    Webcam.set({
+        width: 490,
+        height: 390,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+
+    Webcam.attach('#my_camera');
+
+    function take_snapshot() {
+        Webcam.snap(function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img hidden="hidden" src="' + data_uri +
+                '" alt=" ">';
         });
-
-        Webcam.attach('#my_camera');
-
-        function take_snapshot() {
-            Webcam.snap(function(data_uri) {
-                $(".image-tag").val(data_uri);
-                document.getElementById('results').innerHTML = '<img hidden="hidden" src="' + data_uri + '" alt=" ">';
-            });
-        }
+    }
     </script>
 
 </body>
